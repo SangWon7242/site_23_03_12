@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>저스트 쇼핑몰</title>
+
+  <script src="script/jquery.js"></script>
+  <script defer src="script/script.js"></script>
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <div class="notice-1-popup hidden">
+    <div class="flex h-full items-center justify-center">
+      <div class="in-popup flex flex-col">
+        <div class="in-popup__head flex-shirink-0">
+          <div class="btn-close ml-auto"></div>
+        </div>
+        <div class="in-popup__body p-10px flex-grow">
+          <h1 class="popup-content__title">
+            안녕하세요.
+          </h1>
+          <div class="popup-content__body">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus a eum voluptatibus provident
+            pariatur impedit alias. Explicabo vel nihil et quo quae exercitationem? Eaque accusamus vitae facere sint
+            modi laborum?
+          </div>
+        </div>
+        <div class="in-popup__foot flex-shirink-0 flex justify-center py-10px">
+          <a href="#" class="btn-close-2">닫기</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <header class="top-bar h-100px">
+    <div class="con flex h-full">
+      <a href="#" class="logo self-center">
+        <img src="images/logo_1.png" alt="저스트쇼핑몰 로고">
+      </a>
+      <nav class="menu-1 self-end ml-auto">
+        <ul class="flex">
+          <li>
+            <a href="#">탑</a>
+            <ul>
+              <li><a href="#">블라우스</a></li>
+              <li><a href="#">티</a></li>
+              <li><a href="#">셔츠</a></li>
+              <li><a href="#">니트</a></li>
+            </ul>
+
+          </li>
+          <li>
+            <a href="#">아우터</a>
+            <ul>
+              <li><a href="#">자켓</a></li>
+              <li><a href="#">코트</a></li>
+              <li><a href="#">가디건</a></li>
+              <li><a href="#">머플러</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">팬츠</a>
+            <ul>
+              <li><a href="#">청바지</a></li>
+              <li><a href="#">짧은바지</a></li>
+              <li><a href="#">긴바지</a></li>
+              <li><a href="#">레깅스</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">악세서리</a>
+            <ul>
+              <li><a href="#">귀고리</a></li>
+              <li><a href="#">목걸이</a></li>
+              <li><a href="#">반지</a></li>
+              <li><a href="#">팔찌</a></li>
+            </ul>
+          </li>
+        </ul>
+        <div class="menu-1__sub-menu-bg"></div>
+      </nav>
+    </div>
+  </header>
+
+  <section class="section-slider">
+    <div class="con">
+      <div class="slider-box-1" data-index="0">
+        <div class="slides">
+          <div><img src="images/bn_1_1.jpg" alt="슬라이드1 이미지"></div>
+          <div><img src="images/bn_1_2.jpg" alt="슬라이드2 이미지"></div>
+          <div><img src="images/bn_1_3.jpg" alt="슬라이드3 이미지"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-middle mt-30px h-200px">
+    <div class="con flex gap-30px h-full">
+      <div class="flex-1 min-w-0">
+        <div class="tab-box-1 flex flex-col h-full">
+          <div class="tab-box-1__head flex-shrink-0">
+            <ul class="flex">
+              <li onclick="TabBox__init(1);" class="tab-box-1__item tab-box-1__item-1 active"><a href="#"
+                  class="block p-10px">공지사항</a></li>
+              <li onclick="TabBox__init(2);" class="tab-box-1__item tab-box-1__item-2"><a href="#"
+                  class="block p-10px">갤러리</a></li>
+            </ul>
+          </div>
+          <div class="tab-box-1__body flex-grow">
+            <ul class="h-full">
+              <li class="tab-box-1__item tab-box-1__item-1 active h-full p-10px">
+                <div class="notice-list">
+                  <ul>
+                    <li><a href="#"><span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, reiciendis
+                          labore? Velit id dolor fugiat distinctio fugit, reprehenderit labore explicabo soluta quo,
+                          dolore accusantium officia iste laborum? Quas, error earum.</span><span>23.03.04</span></a>
+                    </li>
+                    <li><a href="#"><span>안녕하세요.</span><span>23.03.04</span></a></li>
+                    <li><a href="#"><span>안녕하세요.</span><span>23.03.04</span></a></li>
+                    <li><a href="#"><span>안녕하세요.</span><span>23.03.04</span></a></li>
+                  </ul>
+                </div>
+              </li>
+              <li class="tab-box-1__item tab-box-1__item-2 h-full p-20px">
+                <div class="gallery-list h-full flex items-center">
+                  <ul class="flex gap-20px">
+                    <li><a href="#"><img src="images/gall_1.jpg" alt="갤러리 이미지1"></a></li>
+                    <li><a href="#"><img src="images/gall_2.jpg" alt="갤러리 이미지2"></a></li>
+                    <li><a href="#"><img src="images/gall_3.jpg" alt="갤러리 이미지3"></a></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="flex-1">
+        <a href="#" class="flex h-full">
+          <img src="images/bn_2.jpg" alt="이벤트1 바로가기">
+        </a>
+      </div>
+      <div class="flex-1">
+        <a href="#" class="flex h-full">
+          <img src="images/bn_3.jpg" alt="이벤트2 바로가기">
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bottom-bar h-100px mt-20px">
+    <div class="con flex items-center h-full">
+      <div class="flex-1">
+        <div class="copy text-center mt-10px">
+          Copyright © SBS Corp. All rights reserved.
+        </div>
+      </div>
+      <div>
+        <div>
+          <ul class="sns-list flex">
+            <li>
+              <a href="#">
+                <span>FACEBOOK</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span>INSTAGRAM</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span>TWITTER</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="mt-10px text-center">
+          <select onChange="window.open(this.value)">
+            <option selected disabled>- 패밀리사이트 -</option>
+            <option value="https://www.naver.com">네이버</option>
+            <option value="https://www.daum.net/">다음</option>
+            <option value="https://www.google.com/">구글</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>

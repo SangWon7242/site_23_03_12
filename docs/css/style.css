@@ -1,0 +1,480 @@
+@charset "UTF-8";
+
+html > body,
+html > body select {
+	text-underline-position: under;
+	font-family: '맑은 고딕','Malgun Gothic', 'Apple SD Gothic Neo', sans-serif;
+	line-height: 1.3;
+	/* 지마켓 산스에서는 이걸 넣어야 각 텍스트 엘리먼트별 높이차이가 발생하지 않는다.	 */
+}
+
+/* 노말라이즈 */
+body, ul, li {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+img, video {
+	display: block;
+	max-width: 100%;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+/* 라이브러리 */
+.con {
+	margin: 0 auto;
+}
+
+.block {
+	display: block;
+}
+
+.hidden {
+	display: none;
+}
+
+.flex {
+	display: flex;
+}
+
+.flex-1 {
+	flex: 1 1 0%;
+}
+
+.flex-grow {
+	flex-grow: 1;
+}
+
+.flex-shrink-0 {
+	flex-shrink: 0;
+}
+
+.flex-col {
+	flex-direction: column;
+}
+
+.items-center {
+	align-items: center;
+}
+
+.justify-center {
+	justify-content: center;
+}
+
+.justify-end { 
+	justify-content: end;
+}
+
+.self-center {
+	align-self: center;
+}
+
+.self-end {
+	align-self: end;
+}
+
+.bg-red {
+	background-color: red;
+}
+
+.bg-pink {
+	background-color: pink;
+}
+
+.bg-blue {
+	background-color: blue;
+}
+
+.bg-green {
+	background-color: green;
+}
+
+.grayscale {
+	filter: grayscale(100%);
+}
+
+.h-100px {
+	height: 100px;
+}
+
+.min-w-0 {
+	min-width: 0;
+}
+
+.w-100px {
+	width: 100px;
+}
+
+.h-200px {
+	height: 200px
+}
+
+.h-full {
+	height: 100%;
+}
+
+.w-full {
+	width: 100%;
+}
+
+.mr-auto {
+	margin-right: auto;
+}
+
+.ml-auto {
+	margin-left: auto;
+}
+
+.mt-10px {
+	margin-top: 10px;
+}
+
+.mt-20px {
+	margin-top: 20px;
+}
+
+.mt-30px {
+	margin-top: 30px;
+}
+
+.font-bold {
+	font-weight: bold
+}
+
+.gap-30px {
+	gap: 30px;
+}
+
+.py-10px {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.px-10px {
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.p-10px {
+	padding: 10px;
+}
+
+.p-20px {
+	padding: 20px;
+}
+
+.gap-20px {
+	gap: 20px;
+}
+
+.text-center {
+	text-align: center;
+}
+
+/* 커스텀 */
+:root {
+	--site-width: 1200px;
+	--sub-menu-height: 166px;
+	--base-transition-duration: 0.3s;
+}
+
+.con-min-width {
+	min-width: var(--site-width);	
+}
+
+.con {
+	width: var(--site-width);
+}
+
+.top-bar {
+	position: relative;
+}
+
+/* 1차 메뉴 */
+.menu-1 > ul {
+	border: 1px solid black;	
+	border-radius: 10px 10px 0 0;
+	transition: border-radius 0s var(--base-transition-duration);
+}
+
+.menu-1 > ul:hover {
+	border-radius: 10px 10px 0 0;
+	transition: border-radius 0s 0s;
+}
+
+/* 1차 메뉴 아이템  */
+.menu-1 > ul > li {
+	position: relative;
+}
+
+/* n차 메뉴 아이템 텍스트 */
+.menu-1 ul > li > a { 
+	display: block;
+	padding: 10px 0;
+	width: 120px;
+	text-align: center;
+	font-weight: bold;
+	position: relative;		
+}
+
+/* 호버 된 n차 메뉴 아이템 텍스트 */
+.menu-1 ul > li:hover > a {
+	text-decoration: underline;
+}
+
+.menu-1 > ul > li:not(:last-child) > a::after {
+	content: "";
+	background-color: currentcolor;	
+	position: absolute;
+	width: 1px;
+	height: 12px;
+	top: calc(50% - 7px);
+	right: 0;
+}
+
+/* 2차 메뉴 */
+.menu-1 > ul ul {
+	background-color: white;
+	position: absolute;
+	z-index: 20;
+	top: 100%;
+	left: 0;
+	width: 100%;
+	height: 0;
+	overflow: hidden;
+	visibility: hidden;
+	padding-top: 1px;
+	border-bottom: 1px solid black;
+	transition: height var(--base-transition-duration), visibility var(--base-transition-duration);	
+}
+
+.menu-1:hover > ul > li > ul {	
+	height: var(--sub-menu-height);
+	visibility: visible;
+}
+
+/* 2차 메뉴 중 첫번째 */
+.menu-1 > ul > li:first-child > ul {
+	border-left: 1px solid black;
+	left: -1px;
+	width: calc(100% + 1px);	
+}
+
+/* 2차 메뉴 중 마지막 */
+.menu-1 > ul > li:last-child > ul {
+	border-right: 1px solid black;
+	width: calc(100% + 1px);	
+}
+
+.menu-1 > ul ul > li:hover > a,
+.menu-1 > ul ul > li > a:focus {
+	background-color: #efefef;
+	border-radius: 10px;
+	outline: 0;
+}
+
+.menu-1__sub-menu-bg {
+	background-color: rgba(0, 0, 0, 0.8);
+	width: 100%;
+	height: 0; /*임시*/
+	left: 0;	
+	z-index: 10;
+	position: absolute;
+	transition: height var(--base-transition-duration);
+}
+
+.menu-1:hover > .menu-1__sub-menu-bg {
+	height: calc(var(--sub-menu-height) - 1px);
+}
+
+/* slider-box-1 */
+.slider-box-1 {
+	height: 300px;
+	overflow: hidden;
+}
+
+.slider-box-1 > .slides {
+	transition: margin-top 0.3s;
+	height: 100%;
+}
+
+.slider-box-1 > .slides > div {
+	height: 100%;
+}
+
+.slider-box-1 > .slides > div > img {
+	width: 100%;
+	height: 100%;
+}
+
+.slider-box-1[data-index="0"] > .slides {
+	margin-top: 0;
+}
+
+.slider-box-1[data-index="1"] > .slides {
+	margin-top: -300px;
+}
+
+.slider-box-1[data-index="2"] > .slides {
+	margin-top: -600px;
+}
+
+/* 탭박스 구현 시작 */
+.tab-box-1__head {
+	border: 1px solid black;
+	border-radius: 10px 10px 0 0 ;
+	border-bottom-width: 0;
+	z-index: 1;
+}
+
+.tab-box-1__head > ul > li {
+	border-right: 1px solid black;
+	border-bottom: 1px solid transparent;
+}
+
+.tab-box-1__head > ul > li.active {
+	border-bottom-color: white;
+}
+
+.tab-box-1__head > ul > li.active > a,
+.tab-box-1__head > ul > li:hover > a {
+	text-decoration: underline;
+	color: #999;
+}
+
+.tab-box-1__body {
+	margin-top: -1px;
+	border: 1px solid black;
+	border-radius: 0 0 10px 10px;
+}
+
+.tab-box-1__body > ul > li {
+	display: none;
+}
+
+.tab-box-1__body > ul > li.active {
+	display: block;
+}
+/* 탭박스 구현 끝 */
+
+/* notice-list 구현 시작 */
+.notice-list {	
+	height: 100%;	
+	display: flex;
+	align-items: center;
+}
+
+.notice-list > ul {	
+	width: 100%;
+}
+
+.notice-list > ul > li > a {	
+	display: flex;	
+	padding: 3px 5px;
+}
+
+.notice-list > ul > li:hover > a {
+	text-decoration: underline;
+	color: #999;
+}
+
+.notice-list > ul > li > a::before {
+	content: "•";	
+}
+
+.notice-list > ul > li > a > span:first-child {
+	flex: 1 0 0;
+	white-space: nowrap; /* 줄바꿈 금지 */
+	overflow: hidden; /* 넘친 부분을 숨김처리 */
+	text-overflow: ellipsis; /* 숨김처리 부분에 내용이 있음을 ... 처리*/
+}
+/* notice-list 구현 끝 */
+
+/* 팝업창 구현  */
+.notice-1-popup {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(0,0,0,0.5);
+	z-index: 50;
+	display: none;	
+}
+
+.in-popup {
+	width: 400px;	
+	background-color: white;
+	border: 1px solid black;
+	border-radius: 10px;
+}
+
+.in-popup__head {
+	border-bottom: 1px solid black;
+	padding: 10px;
+}
+
+.btn-close {
+	width: 45px;
+	height: 45px;	
+	position: relative;
+	cursor: pointer;
+}
+
+/* .btn-close:active {
+transform: translateY(3px);
+} */
+
+.btn-close:hover {
+	transform: rotate(3deg);
+}
+
+.btn-close::before,
+.btn-close::after {
+	content: "";
+	background-color: black;
+	position: absolute;
+	top: 40%;
+	height: 20%;
+	width: 100%;
+	transform: rotate(45deg);
+}
+
+.btn-close::after {
+	transform: rotate(-45deg);
+}
+
+.in-popup__foot {
+	border-top: 1px solid black;
+}
+
+.btn-close-2 {
+	border: 1px solid black;
+	padding: 10px;
+	border-radius: 10px;
+}
+
+/* sns-list  */
+.sns-list {
+	margin-right: -10px;
+}
+
+.sns-list > li > a {
+	padding: 0 10px;
+	display: block;
+	font-size: 0.9rem;
+}
+
+/* 카피 */
+.copy {
+	color: #898989;
+}
